@@ -63,7 +63,10 @@ const QRScannerPage = () => {
         <Text className="text-xl text-center mb-4 w-full">
           Potrebno je odobriti pravo pristupa kameri.
         </Text>
-        <Button onPress={() => console.log("test")} className="bg-secondary">
+        <Button
+          onPress={() => console.log("test")}
+          className="bg-secondary px-5"
+        >
           Odobri pristup
         </Button>
       </View>
@@ -73,25 +76,25 @@ const QRScannerPage = () => {
   if (hasScanned) {
     if (error) {
       content = (
-        <>
+        <View className="px-10 items-center">
           <Text className="my-4 text-lg w-full text-center text-danger">
             {error}
           </Text>
-          <Button onPress={handleRescan} className="bg-secondary">
+          <Button onPress={handleRescan} className="bg-secondary px-5">
             Pokusaj ponovo
           </Button>
-        </>
+        </View>
       );
     } else if (isValid) {
       content = (
-        <>
+        <View className="px-10 items-center">
           <Text className="my-4 text-lg w-full text-center text-success">
             Kod je uspešno skeniran.
           </Text>
-          <Button onPress={handleRescan} className="bg-success">
+          <Button onPress={handleRescan} className="bg-success px-5">
             Skeniraj novi račun
           </Button>
-        </>
+        </View>
       );
     }
   }

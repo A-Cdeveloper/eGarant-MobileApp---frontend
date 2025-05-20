@@ -30,7 +30,7 @@ const TabsLayout = () => {
           marginStart: 5,
         },
         tabBarItemStyle: {
-          height: 45,
+          height: 48,
         },
       }}
     >
