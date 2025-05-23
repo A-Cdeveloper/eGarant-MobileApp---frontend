@@ -19,7 +19,7 @@ export type InvoiceResponse = InvoiceSuccessResponse | InvoiceErrorResponse;
 export async function getInvoice(iid: string): Promise<InvoiceResponse> {
   const res = await fetch(`${process.env.EXPO_PUBLIC_API}/invoices/${iid}`, {
     headers: {
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiIxIiwiaWF0IjoxNzQ4MDEwOTYwLCJleHAiOjE3NDgwMjUzNjB9.dr42aqHgOB8CGJ-UWmHB13sLs1-gcx-bNR7Je0e0K3s`,
+      Authorization: `Bearer ${process.env.EXPO_TOKEN}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
