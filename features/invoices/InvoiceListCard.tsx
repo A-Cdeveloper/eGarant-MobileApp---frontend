@@ -15,7 +15,9 @@ const InvoiceListCard = ({ item }: any) => {
           <Text className="text-[12px] text-primary-light">
             {formatDate(item.invoice_date)}
           </Text>
-          <Text className="text-[12px] text-primary-light">Garancije (2)</Text>
+          <Text className="text-[12px] text-primary-light">
+            Artikli pod garancijom ({item.productsWithWarrantyCount})
+          </Text>
         </View>
         <View className="w-1/3">
           <Text className="w-full text-right">

@@ -22,4 +22,5 @@ export type InvoiceType = {
   jurnal: string;
   seller: SellerType;
   products: Product[];
+  _count: number;
 };
