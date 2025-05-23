@@ -14,7 +14,7 @@ const ProductDetails = ({ product, invoice_date }: any) => {
       className="rounded-none border-x-0 flex-row flex-wrap items-center justify-between"
     >
       <View className="w-1/2">
-        <Text className="font-bold uppercase">{product.product_name}</Text>
+        <Text className="font-bold uppercase">{product.name}</Text>
         <Text className="font-normal text-[12px]">kol. {product.quantity}</Text>
       </View>
 

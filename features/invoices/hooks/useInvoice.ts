@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { InvoicesResponse, getInvoices } from "../api/getInvoices";
+import { InvoiceResponse, getInvoice } from "../api/getInvoice";
 
-export function useInvoices() {
-  const { isPending, data } = useQuery<InvoicesResponse>({
-    queryKey: ["invoices"],
-    queryFn: getInvoices,
+export function useInvoice(iid: string) {
+  const { isPending, data } = useQuery<InvoiceResponse>({
+    queryKey: ["invoices", iid],
+    queryFn: () => getInvoice(iid as string),
   });
 
   if (isPending) {

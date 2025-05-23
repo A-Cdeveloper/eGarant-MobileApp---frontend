@@ -118,25 +118,11 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="invoices/invoice-print"
         options={{
-          headerShown: true,
+          headerShown: false,
           href: null,
           tabBarStyle: { display: "none" },
           headerTitle: "",
-          headerStyle: { backgroundColor: "#EEE6E6DA", height: 40 },
           headerShadowVisible: false,
-          headerRight: () => (
-            <Pressable
-              onPress={() => router.replace("/invoices/[iid]")}
-              className="flex-row items-center gap-0 px-2"
-            >
-              {/* <Text className="text-lg font-bold">Zatvori</Text> */}
-              <Ionicons
-                name={"close-circle"}
-                size={30}
-                style={{ marginStart: 8 }}
-              />
-            </Pressable>
-          ),
         }}
       />
     </Tabs>

@@ -7,6 +7,10 @@ import DetailsProductsList from "@/features/invoices/invoice/DetailsProductsList
 import DetailsSeller from "@/features/invoices/invoice/DetailsSeller";
 
 import DetailsActions from "@/features/invoices/invoice/DetailsActions";
+import { useInvoice } from "@/features/invoices/hooks/useInvoice";
+import LoadingPage from "@/components/Loading";
+import ErrorPage from "@/components/Error";
+import { Product } from "@/types/types";
 
 const invoice = {
   iid: "2d3c1d9a-cc07-4b5c-b39c-71f68762610c",
@@ -136,15 +140,16 @@ EVO EP BMB 95/л (Ђ)
 
 const InvoiceDetailPage = () => {
   const { iid } = useLocalSearchParams();
-  const router = useRouter();
-  const {
-    invoice_number,
-    invoice_date,
-    invoice_amount,
-    products,
-    seller,
-    jurnal,
-  } = invoice;
+
+  const { isPending, data, error } = useInvoice(iid as string);
+
+  if (isPending) {
+    return <LoadingPage />;
+  }
+
+  if (error) {
+    return <ErrorPage error={error} />;
+  }
 
   return (
     <>
@@ -153,16 +158,19 @@ const InvoiceDetailPage = () => {
         contentContainerStyle={{ paddingBottom: 80 }}
       >
         <DetailsHeader
-          invoice_number={invoice_number}
-          invoice_date={invoice_date}
-          invoice_amount={invoice_amount}
+          invoice_number={data?.invoice_number} //data?.invoice.invoice_number as string}
+          invoice_date={data?.invoice_date as string}
+          invoice_amount={data?.invoice_amount as number}
         />
 
-        <DetailsProductsList products={products} invoice_date={invoice_date} />
+        <DetailsProductsList
+          products={data?.products as Product[]}
+          invoice_date={data?.invoice_date as string}
+        />
 
-        <DetailsSeller seller={seller} />
+        <DetailsSeller seller={data?.seller} />
       </ScrollView>
-      <DetailsActions jurnal={jurnal} iid={iid as string} />
+      <DetailsActions jurnal={data?.jurnal as string} iid={iid as string} />
     </>
   );
 };

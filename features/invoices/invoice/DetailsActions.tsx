@@ -7,13 +7,13 @@ const DetailsActions = ({ jurnal, iid }: { jurnal: string; iid: string }) => {
   return (
     <View
       className="absolute bottom-0 p-4  flex-row items-center 
-  justify-between w-full bg-warning gap-2"
+  justify-between w-full bg-background gap-2"
     >
       <Button
         onPress={() =>
-          router.replace({
+          router.push({
             pathname: "/invoices/invoice-print",
-            params: { jurnal },
+            params: { jurnal, iid },
           })
         }
         className="bg-primary py-2 w-1/2 max-w-[48%]"

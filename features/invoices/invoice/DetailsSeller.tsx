@@ -30,7 +30,7 @@ const DetailsSeller = ({ seller }: any) => {
         {seller.address},{seller.city}
       </Text>
 
-      {cordinates && cordinates.latitude !== 0 && cordinates.longitude !== 0 ? (
+      {/* {cordinates && cordinates.latitude !== 0 && cordinates.longitude !== 0 ? (
         <MapView
           provider={PROVIDER_GOOGLE} // Use Google Maps
           style={{
@@ -48,7 +48,7 @@ const DetailsSeller = ({ seller }: any) => {
         >
           <Marker coordinate={cordinates} title={seller.businessName} />
         </MapView>
-      ) : null}
+      ) : null} */}
     </Card>
   );
 };

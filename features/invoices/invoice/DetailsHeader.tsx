@@ -7,7 +7,7 @@ const DetailsHeader = ({
   invoice_date,
   invoice_amount,
 }: {
-  invoice_number: string;
+  invoice_number: string | undefined;
   invoice_date: string;
   invoice_amount: number;
 }) => {
