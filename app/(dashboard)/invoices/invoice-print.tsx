@@ -1,3 +1,4 @@
+import Card from "@/components/ui/Card";
 import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
@@ -6,7 +7,7 @@ const InvoicePrintPage = () => {
   const { jurnal, iid } = useLocalSearchParams();
   const router = useRouter();
   return (
-    <ScrollView className="flex-1 px-4 py-12 relative">
+    <ScrollView className="flex-1 relative px-4 py-12">
       <Pressable
         onPress={() => router.replace(`/invoices/${iid}`)}
         className="absolute -top-8 right-0 flex-row items-center justify-center gap-2 px-0"
@@ -20,7 +21,7 @@ const InvoicePrintPage = () => {
           textAlign: "left",
           fontSize: 13,
           lineHeight: 22,
-          width: "90%",
+          width: "100%",
         }}
       >
         {jurnal}
