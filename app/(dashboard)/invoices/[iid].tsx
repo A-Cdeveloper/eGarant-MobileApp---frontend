@@ -2,11 +2,11 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 
 import { ScrollView } from "react-native";
 
-import DetailsHeader from "@/components/features/invoices/invoice/DetailsHeader";
-import DetailsProductsList from "@/components/features/invoices/invoice/DetailsProductsList";
-import DetailsSeller from "@/components/features/invoices/invoice/DetailsSeller";
+import DetailsHeader from "@/features/invoices/invoice/DetailsHeader";
+import DetailsProductsList from "@/features/invoices/invoice/DetailsProductsList";
+import DetailsSeller from "@/features/invoices/invoice/DetailsSeller";
 
-import DetailsActions from "@/components/features/invoices/invoice/DetailsActions";
+import DetailsActions from "@/features/invoices/invoice/DetailsActions";
 
 const invoice = {
   iid: "2d3c1d9a-cc07-4b5c-b39c-71f68762610c",

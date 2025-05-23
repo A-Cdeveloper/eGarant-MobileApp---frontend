@@ -1,8 +1,8 @@
 import { FlashList } from "@shopify/flash-list";
 import { Text, View } from "react-native";
-import InvoiceListCard from "@/components/features/invoices/InvoiceListCard";
+import InvoiceListCard from "@/features/invoices/InvoiceListCard";
 import Headline from "@/components/ui/Headline";
-import SearchInvoices from "@/components/features/invoices/SearchInvoices";
+import SearchInvoices from "@/features/invoices/SearchInvoices";
 import { useState } from "react";
 
 const invoices = [

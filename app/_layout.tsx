@@ -22,7 +22,6 @@ import "./globals.css";
 const queryClient = new QueryClient();
 
 export default function RootLayout() {
-  const [ready, setReady] = useState(false);
   const [interLoaded] = useInterFonts({
     Inter_400Regular,
     Inter_600SemiBold,
@@ -68,9 +67,9 @@ export default function RootLayout() {
             animation: "none",
           }}
         >
-          {/* <Stack.Screen name="auth/index" />
-          <Stack.Screen name="auth/register" /> */}
           <Stack.Screen name="(dashboard)" />
+          <Stack.Screen name="auth/index" />
+          <Stack.Screen name="auth/register" />
         </Stack>
       </SafeAreaView>
     </QueryClientProvider>

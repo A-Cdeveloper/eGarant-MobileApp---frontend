@@ -1,4 +1,4 @@
-import RegisterForm from "@/components/features/auth/RegisterForm";
+import RegisterForm from "@/features/auth/RegisterForm";
 import { Link } from "expo-router";
 import React from "react";
 import { Keyboard, Text, TouchableWithoutFeedback, View } from "react-native";

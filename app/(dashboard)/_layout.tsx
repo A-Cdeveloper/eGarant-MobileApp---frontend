@@ -139,14 +139,6 @@ const TabsLayout = () => {
           ),
         }}
       />
-
-      <Tabs.Screen
-        name="auth/index"
-        options={{
-          headerShown: true,
-          href: null,
-        }}
-      />
     </Tabs>
   );
 };

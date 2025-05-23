@@ -2,7 +2,7 @@ import { useCameraPermissions } from "expo-camera";
 import { useState } from "react";
 
 import { useRouter } from "expo-router";
-import { getScanedDataFunction } from "../../../../lib/scan";
+import { getScanedDataFunction } from "@/lib/scan";
 
 export const useScan = () => {
   const [permission, requestPermission] = useCameraPermissions();

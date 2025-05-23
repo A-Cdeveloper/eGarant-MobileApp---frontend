@@ -2,7 +2,7 @@ import Button from "@/components/ui/Button";
 import { CameraView } from "expo-camera";
 import { Text, TouchableOpacity, View } from "react-native";
 
-import { useScan } from "@/components/features/scaner/hooks/useScan";
+import { useScan } from "@/features/scaner/hooks/useScan";
 import Headline from "@/components/ui/Headline";
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect } from "react";

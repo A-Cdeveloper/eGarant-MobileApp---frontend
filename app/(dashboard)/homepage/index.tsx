@@ -1,8 +1,8 @@
-import { useRouter } from "expo-router";
-import { ScrollView, Text, View } from "react-native";
 import Button from "@/components/ui/Button";
 import Headline from "@/components/ui/Headline";
-import Widget from "@/components/features/homepage/Widget";
+import Widget from "@/features/homepage/Widget";
+import { useRouter } from "expo-router";
+import { Text, View } from "react-native";
 
 const HomePage = () => {
   const router = useRouter();

@@ -7,7 +7,7 @@ const DetailsActions = ({ jurnal, iid }: { jurnal: string; iid: string }) => {
   return (
     <View
       className="absolute bottom-0 p-4  flex-row items-center 
-  justify-between w-full bg-background gap-2"
+  justify-between w-full bg-warning gap-2"
     >
       <Button
         onPress={() =>

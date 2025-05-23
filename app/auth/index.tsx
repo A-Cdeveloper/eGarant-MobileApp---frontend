@@ -1,5 +1,5 @@
-import LoginForm from "@/components/features/auth/LoginForm";
-import OTPForm from "@/components/features/auth/OTPForm";
+import LoginForm from "@/features/auth/LoginForm";
+import OTPForm from "@/features/auth/OTPForm";
 import { useState } from "react";
 import { Keyboard, TouchableWithoutFeedback, View } from "react-native";
 
