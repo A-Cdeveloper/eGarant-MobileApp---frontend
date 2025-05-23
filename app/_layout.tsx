@@ -16,7 +16,10 @@ import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Image, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./globals.css";
+
+const queryClient = new QueryClient();
 
 export default function RootLayout() {
   const [ready, setReady] = useState(false);
@@ -44,30 +47,32 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-primary">
-      <StatusBar style="light" />
-      <Stack
-        screenOptions={{
-          headerShown: true,
-          header: () => (
-            <View className="flex-row items-center justify-center bg-primary py-4">
-              <Image
-                source={require("../assets/egarant.png")}
-                style={{
-                  width: 150,
-                  height: 40,
-                  resizeMode: "contain",
-                }}
-              />
-            </View>
-          ),
-          animation: "none",
-        }}
-      >
-        {/* <Stack.Screen name="auth/index" />
-        <Stack.Screen name="auth/register" /> */}
-        <Stack.Screen name="(dashboard)" />
-      </Stack>
-    </SafeAreaView>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaView className="flex-1 bg-primary">
+        <StatusBar style="light" />
+        <Stack
+          screenOptions={{
+            headerShown: true,
+            header: () => (
+              <View className="flex-row items-center justify-center bg-primary py-4">
+                <Image
+                  source={require("../assets/egarant.png")}
+                  style={{
+                    width: 150,
+                    height: 40,
+                    resizeMode: "contain",
+                  }}
+                />
+              </View>
+            ),
+            animation: "none",
+          }}
+        >
+          {/* <Stack.Screen name="auth/index" />
+          <Stack.Screen name="auth/register" /> */}
+          <Stack.Screen name="(dashboard)" />
+        </Stack>
+      </SafeAreaView>
+    </QueryClientProvider>
   );
 }

@@ -1,12 +1,7 @@
 import LoginForm from "@/components/features/auth/LoginForm";
 import OTPForm from "@/components/features/auth/OTPForm";
 import { useState } from "react";
-import {
-  Keyboard,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-} from "react-native";
+import { Keyboard, TouchableWithoutFeedback, View } from "react-native";
 
 const LoginPage = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
@@ -23,5 +18,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-const styles = StyleSheet.create({});
