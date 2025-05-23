@@ -7,8 +7,10 @@ import { FlashList } from "@shopify/flash-list";
 import { Text, View } from "react-native";
 
 const InvoicesPage = () => {
-  const { isPending, invoices, error } = useInvoices();
+  const { isPending, data, error } = useInvoices();
   //const [searchValue, setSearchValue] = useState("");
+
+  // console.log(data);
 
   if (isPending) {
     return <LoadingPage />;
@@ -32,13 +34,13 @@ const InvoicesPage = () => {
         searchValue={searchValue}
       /> */}
 
-      {invoices?.length !== 0 ? (
+      {data?.total !== 0 ? (
         <>
           <Text className="text-primary mb-3 font-semibold text-right me-2 text-[12px]">
-            Ukupno: {invoices?.length}
+            Ukupno: {data?.total}
           </Text>
           <FlashList
-            data={invoices}
+            data={data?.invoices}
             className="gap-4 rounded-lg mb-24"
             renderItem={({ item }) => (
               <InvoiceListCard key={item.iid} item={item} />

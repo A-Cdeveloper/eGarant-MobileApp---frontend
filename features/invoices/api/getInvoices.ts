@@ -1,9 +1,9 @@
-import { Invoice } from "@/types/types";
+import { InvoiceType } from "@/types/types";
 
 type InvoicesSuccessResponse = {
   success: true;
   data: {
-    invoices: Invoice[];
+    invoices: Omit<InvoiceType, "products">[];
     total: number;
   };
 };
