@@ -37,7 +37,7 @@ const HomePage = () => {
         <Widget
           variant="primary"
           count={data?.productsGaranteeCount as number}
-          position="-bottom-2 right-8"
+          position="-bottom-2 right-12"
           href="/guarantee"
         >
           garancije

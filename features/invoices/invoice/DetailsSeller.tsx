@@ -26,8 +26,8 @@ const DetailsSeller = ({ seller }: { seller: SellerType }) => {
   return (
     <Card>
       <Headline level={3}>Prodajno mesto:</Headline>
-      <Text className="font-normal">{seller.businessName}</Text>
-      <Text className="font-normal">
+      <Text className="font-normal text-[12px]">{seller.businessName}</Text>
+      <Text className="font-normal text-[12px]">
         {seller.address},{seller.city}
       </Text>
 

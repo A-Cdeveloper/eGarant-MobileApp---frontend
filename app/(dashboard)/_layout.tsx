@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs, useRouter } from "expo-router";
 import React from "react";
-import { Pressable, Text } from "react-native";
+import { Pressable, Text, View } from "react-native";
 const TabsLayout = () => {
   const router = useRouter();
   return (
@@ -98,20 +98,37 @@ const TabsLayout = () => {
           href: null,
           tabBarStyle: { display: "none" },
           headerTitle: "",
-          headerStyle: { backgroundColor: "#EEE6E6DA", height: 45 },
+          headerStyle: { backgroundColor: "#f57a5c", height: 35 },
           headerShadowVisible: false,
-          headerRight: () => (
-            <Pressable
-              onPress={() => router.replace("/invoices")}
-              className="flex-row items-center justify-center gap-2 px-0"
-            >
-              <Ionicons
-                name={"arrow-back-circle"}
-                size={24}
-                style={{ marginStart: 8 }}
-              />
-              <Text className="w-full text-lg font-bold">Svi računi</Text>
-            </Pressable>
+          headerLeft: () => (
+            <View className="flex-row items-center justify-between">
+              <Pressable
+                onPress={() => router.replace("/guarantee")}
+                className="flex-row items-center justify-start w-1/2 gap-2"
+              >
+                <Ionicons
+                  name={"arrow-up-circle"}
+                  size={24}
+                  style={{ marginStart: 8, opacity: 0.8, color: "white" }}
+                />
+                <Text className="text-md font-bold opacity-80 text-white">
+                  SVE GARANCIJE
+                </Text>
+              </Pressable>
+              <Pressable
+                onPress={() => router.replace("/invoices")}
+                className="flex-row items-center justify-end w-1/2 gap-0 pe-3"
+              >
+                <Text className="text-md font-bold opacity-80 text-white">
+                  SVI RAČUNI
+                </Text>
+                <Ionicons
+                  name={"arrow-up-circle"}
+                  size={24}
+                  style={{ marginStart: 8, opacity: 0.8, color: "white" }}
+                />
+              </Pressable>
+            </View>
           ),
         }}
       />
@@ -133,7 +150,7 @@ const TabsLayout = () => {
           href: null,
           tabBarStyle: { display: "none" },
           headerTitle: "",
-          headerStyle: { backgroundColor: "#EEE6E6DA", height: 35 },
+          headerStyle: { backgroundColor: "#f57a5c", height: 35 },
           headerShadowVisible: false,
           headerLeft: () => (
             <Pressable
@@ -141,10 +158,13 @@ const TabsLayout = () => {
               className="flex-row items-center justify-center gap-2 px-0"
             >
               <Ionicons
-                name={"arrow-back-circle"}
+                name={"arrow-up-circle"}
                 size={24}
-                style={{ marginStart: 8 }}
+                style={{ marginStart: 8, opacity: 0.8, color: "white" }}
               />
+              <Text className="text-md font-bold opacity-80 text-white">
+                HOME
+              </Text>
             </Pressable>
           ),
         }}

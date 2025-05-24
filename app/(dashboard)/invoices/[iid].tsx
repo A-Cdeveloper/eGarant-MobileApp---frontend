@@ -29,20 +29,19 @@ const InvoiceDetailPage = () => {
     <>
       <ScrollView
         className="flex-1 px-4 relative bg-background"
-        contentContainerStyle={{ paddingBottom: 80 }}
+        contentContainerStyle={{ paddingBottom: 80, paddingTop: 20 }}
       >
         <DetailsHeader
           invoice_number={data?.invoice_number} //data?.invoice.invoice_number as string}
           invoice_date={data?.invoice_date as string}
           invoice_amount={data?.invoice_amount as number}
         />
+        <DetailsSeller seller={data?.seller as SellerType} />
 
         <DetailsProductsList
           products={data?.products as ProductType[]}
           invoice_date={data?.invoice_date as string}
         />
-
-        <DetailsSeller seller={data?.seller as SellerType} />
       </ScrollView>
       <DetailsActions jurnal={data?.jurnal as string} iid={iid as string} />
     </>

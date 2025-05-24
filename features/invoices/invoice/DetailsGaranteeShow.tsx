@@ -1,25 +1,27 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import ProgressBar from "react-native-progress/Bar";
-import { Ionicons } from "@expo/vector-icons";
 import {
   endDate,
   formatDate,
   getDaysBetweenDates,
   getNumDaysFromToday,
 } from "@/lib/utils";
+import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import ProgressBar from "react-native-progress/Bar";
 
 const DetailsGaranteeShow = ({
   gperiod,
   invoice_date,
+  removeGuarantee,
 }: {
   gperiod: number;
   invoice_date: string;
+  removeGuarantee: boolean;
 }) => {
-  const finalDate = endDate(invoice_date, gperiod);
-  const daysUntilfinalDate = getNumDaysFromToday(new Date(invoice_date));
-  const daysTotal = getDaysBetweenDates(finalDate, new Date(invoice_date));
-  const progressValue = daysUntilfinalDate / daysTotal;
+  const finalDate = endDate(invoice_date, gperiod); //17.7.2025
+  const daysFromToday = getNumDaysFromToday(new Date(invoice_date)); // 7 // 24.05.2025.
+  const daysTotal = getDaysBetweenDates(finalDate, new Date(invoice_date)); // 61 days to
+  const progressValue = daysFromToday / daysTotal;
 
   const progressColor =
     progressValue <= 0.5
@@ -45,14 +47,16 @@ const DetailsGaranteeShow = ({
             borderWidth={0}
             height={10}
           />
-          <TouchableOpacity>
-            <Ionicons
-              name="trash"
-              size={22}
-              className="-mt-2"
-              color={"#d72638"}
-            />
-          </TouchableOpacity>
+          {removeGuarantee && (
+            <TouchableOpacity>
+              <Ionicons
+                name="remove-circle"
+                size={22}
+                className="-mt-2"
+                color={"#d72638"}
+              />
+            </TouchableOpacity>
+          )}
         </View>
       )}
     </View>
@@ -60,5 +64,3 @@ const DetailsGaranteeShow = ({
 };
 
 export default DetailsGaranteeShow;
-
-const styles = StyleSheet.create({});

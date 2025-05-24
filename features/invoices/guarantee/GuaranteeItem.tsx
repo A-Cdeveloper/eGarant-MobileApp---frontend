@@ -9,13 +9,13 @@ const GuaranteeItem = ({ guarantee }: { guarantee: GuaranteeType }) => {
   const router = useRouter();
 
   return (
-    <TouchableOpacity onPress={() => {}}>
-      <Card
-        key={guarantee.pid}
-        className="rounded-none border-x-0 flex-row flex-wrap items-center justify-between"
-      >
-        <View className="w-1/2 gap-1">
+    <TouchableOpacity
+      onPress={() => router.push(`invoices/${guarantee.invoice.iid}`)}
+    >
+      <Card key={guarantee.pid} className="rounded-none border-x-0">
+        <View className="w-full gap-1">
           <Text className="font-normal text-[12px]">
+            Datum prometa:{" "}
             {formatDate(new Date(guarantee.invoice.invoice_date))}
           </Text>
           <Text className="font-normal text-[12px]">
@@ -26,18 +26,23 @@ const GuaranteeItem = ({ guarantee }: { guarantee: GuaranteeType }) => {
           </Text>
         </View>
 
-        <View className="w-1/2">
-          <Text className="font-bold uppercase">{guarantee.name}</Text>
+        <View className="w-full flex-row items-center justify-between mt-4">
+          <View className="w-1/2">
+            <Text className="font-bold uppercase">{guarantee.name}</Text>
+          </View>
+
+          <View className="flex-row items-center justify-center gap-x-4">
+            <Text className="font-semibold">
+              {formatPrice(guarantee.price)}
+            </Text>
+          </View>
         </View>
 
-        <View className="flex-row items-center justify-center gap-x-4">
-          <Text className="font-semibold">{formatPrice(guarantee.price)}</Text>
-        </View>
-
-        {guarantee.gperiod !== null && (
+        {guarantee.gperiod !== 0 && (
           <DetailsGaranteeShow
-            gperiod={guarantee.gperiod}
+            gperiod={guarantee.gperiod as number}
             invoice_date={guarantee.invoice.invoice_date}
+            removeGuarantee={false}
           />
         )}
       </Card>

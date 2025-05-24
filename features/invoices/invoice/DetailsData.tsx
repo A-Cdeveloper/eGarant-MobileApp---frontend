@@ -1,6 +1,6 @@
 import Card from "@/components/ui/Card";
 import { formatPrice } from "@/lib/utils";
-import { Product } from "@/types/types";
+import { ProductType } from "@/types/types";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
@@ -11,7 +11,7 @@ const ProductDetails = ({
   product,
   invoice_date,
 }: {
-  product: Product;
+  product: ProductType;
   invoice_date: string;
 }) => {
   const [showGaranteeForm, setShowGaranteeForm] = useState(false);
@@ -27,7 +27,7 @@ const ProductDetails = ({
 
       <View className="flex-row items-center justify-center gap-x-4">
         <Text className="font-semibold">{formatPrice(product.price)}</Text>
-        {product.gperiod === null && (
+        {product.gperiod === 0 && (
           <TouchableOpacity
             onPress={() => setShowGaranteeForm((prev) => !prev)}
           >
@@ -41,10 +41,11 @@ const ProductDetails = ({
         )}
       </View>
 
-      {product.gperiod !== null && (
+      {product.gperiod !== 0 && (
         <DetailsGaranteeShow
-          gperiod={product.gperiod}
+          gperiod={product.gperiod as number}
           invoice_date={invoice_date}
+          removeGuarantee={true}
         />
       )}
       {showGaranteeForm && <DetailsGaranteeForm />}
