@@ -6,6 +6,7 @@ import Headline from "../../../components/ui/Headline";
 import { useProfile } from "@/features/profile/hooks/useProfile";
 import LoadingPage from "@/components/Loading";
 import ErrorPage from "@/components/Error";
+import { formatDate } from "@/lib/utils";
 
 const ProfilePage = () => {
   const { isPending, data, error } = useProfile();
@@ -21,7 +22,7 @@ const ProfilePage = () => {
   return (
     <View className="flex-1 px-8 bg-background justify-center gap-4 ">
       {/*  */}
-      <View className="mb-4">
+      <View className="mb-4 gap-1">
         <Headline level={1} className="mt-8">
           {data?.user?.fullName}
         </Headline>
@@ -31,15 +32,19 @@ const ProfilePage = () => {
       {/*  */}
       <Card className="flex-row justify-between">
         <Text className="w-1/2">Broj računa:</Text>
-        <Text className="w-1/2 text-right">{data?.invoiceCount}</Text>
+        <Text className="w-1/2 text-right font-bold">{data?.invoiceCount}</Text>
       </Card>
       <Card className="flex-row justify-between">
         <Text className="w-1/2">Broj garancija:</Text>
-        <Text className="w-1/2 text-right">{data?.productsGaranteeCount}</Text>
+        <Text className="w-1/2 text-right font-bold">
+          {data?.productsGaranteeCount}
+        </Text>
       </Card>
       <Card className="flex-row justify-between">
         <Text className="w-1/2">Poslednja aktivnost:</Text>
-        <Text className="w-1/2 text-right">25.05.2025</Text>
+        <Text className="w-1/2 text-right font-bold">
+          {formatDate(new Date(data?.user?.updatedAt as string), true)}
+        </Text>
       </Card>
 
       <View className="mt-8 flex-row flex-wrap justify-between">
