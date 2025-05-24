@@ -3,8 +3,8 @@ import { InvoiceType } from "@/types/types";
 type InvoicesSuccessResponse = {
   success: true;
   data: {
-    invoices: Omit<InvoiceType, "products">[];
     total: number;
+    invoices: InvoiceType[];
   };
 };
 

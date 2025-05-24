@@ -125,6 +125,30 @@ const TabsLayout = () => {
           headerShadowVisible: false,
         }}
       />
+
+      <Tabs.Screen
+        name="guarantee/index"
+        options={{
+          headerShown: true,
+          href: null,
+          tabBarStyle: { display: "none" },
+          headerTitle: "",
+          headerStyle: { backgroundColor: "#EEE6E6DA", height: 35 },
+          headerShadowVisible: false,
+          headerLeft: () => (
+            <Pressable
+              onPress={() => router.replace("/homepage")}
+              className="flex-row items-center justify-center gap-2 px-0"
+            >
+              <Ionicons
+                name={"arrow-back-circle"}
+                size={24}
+                style={{ marginStart: 8 }}
+              />
+            </Pressable>
+          ),
+        }}
+      />
     </Tabs>
   );
 };

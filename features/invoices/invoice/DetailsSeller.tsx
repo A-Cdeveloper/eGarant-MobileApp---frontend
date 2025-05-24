@@ -4,8 +4,9 @@ import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { getCoordinatesFromAddress } from "@/lib/maps";
 import Headline from "@/components/ui/Headline";
 import Card from "@/components/ui/Card";
+import { SellerType } from "@/types/types";
 
-const DetailsSeller = ({ seller }: any) => {
+const DetailsSeller = ({ seller }: { seller: SellerType }) => {
   const [cordinates, setCordinates] = useState({
     latitude: 0,
     longitude: 0,

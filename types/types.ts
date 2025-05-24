@@ -1,17 +1,17 @@
-type SellerType = {
+export type SellerType = {
+  sid: string;
   businessName: string;
   address: string;
   city: string;
   pib: string;
 };
 
-export type Product = {
+export type ProductType = {
   pid: string;
   name: string;
   quantity: number;
   gperiod: number | null;
   price: number;
-  jurnal: string;
 };
 
 export type InvoiceType = {
@@ -19,10 +19,20 @@ export type InvoiceType = {
   invoice_number: string;
   invoice_date: string;
   invoice_amount: number;
-  jurnal: string;
   seller: SellerType;
-  products: Product[];
-  _count: number;
+  productsWithWarrantyCount: number;
+};
+
+export type InvoiceTypeWithProducts = InvoiceType & {
+  productsCount: number;
+  jurnal: string;
+  products: ProductType[];
+};
+
+export type GuaranteeType = ProductType & {
+  invoice: Omit<InvoiceType, "invoice_amount" | "productsWithWarrantyCount"> & {
+    seller: Omit<SellerType, "pib">;
+  };
 };
 
 export type UserType = {

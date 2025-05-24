@@ -1,10 +1,10 @@
-import { InvoiceType } from "@/types/types";
+import { InvoiceTypeWithProducts } from "@/types/types";
 
 type InvoiceSuccessResponse = {
   success: true;
-  data: InvoiceType;
   productsCount: number;
   productsWithWarrantyCount: number;
+  data: InvoiceTypeWithProducts;
 };
 
 type InvoiceErrorResponse = {

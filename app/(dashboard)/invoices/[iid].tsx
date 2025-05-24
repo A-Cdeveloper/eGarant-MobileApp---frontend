@@ -10,7 +10,7 @@ import DetailsActions from "@/features/invoices/invoice/DetailsActions";
 import { useInvoice } from "@/features/invoices/hooks/useInvoice";
 import LoadingPage from "@/components/Loading";
 import ErrorPage from "@/components/Error";
-import { Product } from "@/types/types";
+import { ProductType, SellerType } from "@/types/types";
 
 const InvoiceDetailPage = () => {
   const { iid } = useLocalSearchParams();
@@ -38,11 +38,11 @@ const InvoiceDetailPage = () => {
         />
 
         <DetailsProductsList
-          products={data?.products as Product[]}
+          products={data?.products as ProductType[]}
           invoice_date={data?.invoice_date as string}
         />
 
-        <DetailsSeller seller={data?.seller} />
+        <DetailsSeller seller={data?.seller as SellerType} />
       </ScrollView>
       <DetailsActions jurnal={data?.jurnal as string} iid={iid as string} />
     </>

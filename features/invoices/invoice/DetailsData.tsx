@@ -1,12 +1,19 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useState } from "react";
-import { formatPrice } from "@/lib/utils";
-import DetailsGaranteeShow from "./DetailsGaranteeShow";
-import DetailsGaranteeForm from "./DetailsGaranteeForm";
-import { Ionicons } from "@expo/vector-icons";
 import Card from "@/components/ui/Card";
+import { formatPrice } from "@/lib/utils";
+import { Product } from "@/types/types";
+import { Ionicons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import DetailsGaranteeForm from "./DetailsGaranteeForm";
+import DetailsGaranteeShow from "./DetailsGaranteeShow";
 
-const ProductDetails = ({ product, invoice_date }: any) => {
+const ProductDetails = ({
+  product,
+  invoice_date,
+}: {
+  product: Product;
+  invoice_date: string;
+}) => {
   const [showGaranteeForm, setShowGaranteeForm] = useState(false);
   return (
     <Card
@@ -46,5 +53,3 @@ const ProductDetails = ({ product, invoice_date }: any) => {
 };
 
 export default ProductDetails;
-
-const styles = StyleSheet.create({});

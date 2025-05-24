@@ -4,8 +4,9 @@ import { useRouter } from "expo-router";
 
 import { formatPrice, formatDate } from "@/lib/utils";
 import Card from "@/components/ui/Card";
+import { InvoiceType } from "@/types/types";
 
-const InvoiceListCard = ({ item }: any) => {
+const InvoiceListCard = ({ item }: { item: InvoiceType }) => {
   const router = useRouter();
   return (
     <TouchableOpacity onPress={() => router.push(`/invoices/${item.iid}`)}>
@@ -13,7 +14,7 @@ const InvoiceListCard = ({ item }: any) => {
         <View className="w-2/3">
           <Text className="font-bold">{item.seller.businessName}</Text>
           <Text className="text-[12px] text-primary-light">
-            {formatDate(item.invoice_date)}
+            {formatDate(new Date(item.invoice_date))}
           </Text>
           <Text className="text-[12px] text-primary-light">
             Artikli pod garancijom ({item.productsWithWarrantyCount})
