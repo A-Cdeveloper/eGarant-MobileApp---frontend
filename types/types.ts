@@ -24,3 +24,9 @@ export type InvoiceType = {
   products: Product[];
   _count: number;
 };
+
+export type UserType = {
+  email: string;
+  fullName: string;
+  phone: string;
+};
