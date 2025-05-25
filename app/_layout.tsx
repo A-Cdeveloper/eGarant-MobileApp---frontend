@@ -22,9 +22,9 @@ import "./globals.css";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
+      refetchOnWindowFocus: true,
       retry: false,
-      staleTime: Infinity,
+      staleTime: 0,
     },
   },
 });
