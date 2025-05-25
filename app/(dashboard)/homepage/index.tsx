@@ -29,7 +29,7 @@ const HomePage = () => {
         <Widget
           variant="secondary"
           count={data?.invoiceCount as number}
-          position="left-10 -top-1"
+          position="left-4 -top-1"
           href="/invoices"
         >
           računi

@@ -41,6 +41,7 @@ const InvoiceDetailPage = () => {
         <DetailsProductsList
           products={data?.products as ProductType[]}
           invoice_date={data?.invoice_date as string}
+          iid={iid as string}
         />
       </ScrollView>
       <DetailsActions jurnal={data?.jurnal as string} iid={iid as string} />

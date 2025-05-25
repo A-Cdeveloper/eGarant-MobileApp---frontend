@@ -8,16 +8,31 @@ import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import ProgressBar from "react-native-progress/Bar";
+import { useSetGuarantee } from "../hooks/useSetGuarantee";
 
 const DetailsGaranteeShow = ({
   gperiod,
   invoice_date,
+  iid,
+  pid,
   removeGuarantee,
 }: {
   gperiod: number;
   invoice_date: string;
   removeGuarantee: boolean;
+  iid: string;
+  pid: string;
 }) => {
+  const {
+    mutateAsync: setGuaranteeMutation,
+    isPending,
+    error,
+  } = useSetGuarantee(iid, pid);
+
+  const handleSetGuarantee = async () => {
+    await setGuaranteeMutation(0);
+  };
+
   const finalDate = endDate(invoice_date, gperiod); //17.7.2025
   const daysFromToday = getNumDaysFromToday(new Date(invoice_date)); // 7 // 24.05.2025.
   const daysTotal = getDaysBetweenDates(finalDate, new Date(invoice_date)); // 61 days to
@@ -54,6 +69,7 @@ const DetailsGaranteeShow = ({
                 size={22}
                 className="-mt-2"
                 color={"#d72638"}
+                onPress={handleSetGuarantee}
               />
             </TouchableOpacity>
           )}

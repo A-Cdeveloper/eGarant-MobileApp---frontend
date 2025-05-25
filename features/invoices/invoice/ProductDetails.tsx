@@ -10,9 +10,11 @@ import DetailsGaranteeShow from "./DetailsGaranteeShow";
 const ProductDetails = ({
   product,
   invoice_date,
+  iid,
 }: {
   product: ProductType;
   invoice_date: string;
+  iid: string;
 }) => {
   const [showGaranteeForm, setShowGaranteeForm] = useState(false);
   return (
@@ -44,11 +46,19 @@ const ProductDetails = ({
       {product.gperiod !== 0 && (
         <DetailsGaranteeShow
           gperiod={product.gperiod as number}
+          pid={product.pid}
           invoice_date={invoice_date}
+          iid={iid}
           removeGuarantee={true}
         />
       )}
-      {showGaranteeForm && <DetailsGaranteeForm />}
+      {showGaranteeForm && (
+        <DetailsGaranteeForm
+          iid={iid}
+          pid={product.pid}
+          setShowGaranteeForm={setShowGaranteeForm}
+        />
+      )}
     </Card>
   );
 };
